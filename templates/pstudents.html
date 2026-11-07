@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Records</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #302b50;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 38px;
+            margin-bottom: 35px;
+            letter-spacing: 1px;
+        }
+
+        ul {
+            list-style: none;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+        }
+
+        li {
+            padding: 22px;
+            margin-bottom: 14px;
+            background: #f5f1ff;
+            border: 1px solid #e5dcff;
+            border-left: 5px solid #8b5cf6;
+            border-radius: 12px;
+            font-size: 16px;
+            line-height: 1.8;
+            transition: 0.3s ease;
+        }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        li:hover {
+            background: #ece5ff;
+            border-left-color: #6d28d9;
+            transform: translateX(6px);
+            box-shadow: 0 6px 18px rgba(139, 92, 246, 0.15);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 35px 15px;
+            }
+
+            h1 {
+                font-size: 29px;
+            }
+
+            ul {
+                padding: 12px;
+            }
+
+            li {
+                padding: 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Records</h1>
+    <ul>
+        {% for student in students %}
+            <li>
+                {{ student.name }} —
+                Age {{ student.age }} 
+                {{ student.subject }}
+            </li>
+        {% else %}
+            <li>No students found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

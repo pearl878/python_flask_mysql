@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>REST School Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='reststyle.css') }}">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header class="header">
+
+            <div>
+                <h1>REST SCHOOL</h1>
+                <p>Student Management System</p>
+            </div>
+
+            <div class="total-card">
+                <span>Total Students</span>
+                <h2 id="total">0</h2>
+            </div>
+
+        </header>
+
+
+        <!-- ADD STUDENT FORM -->
+
+        <section class="glass form-card">
+
+            <h2 id="formTitle">Add New Student</h2>
+
+            <form id="studentForm">
+
+                <input type="hidden" id="studentId">
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Student Name"
+                    maxlength="100"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="age"
+                    placeholder="Student Age"
+                    min="1"
+                    max="120"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="subject"
+                    placeholder="Subject"
+                    maxlength="100"
+                    required
+                >
+
+                <button type="submit" id="saveBtn">
+                    Add Student
+                </button>
+
+                <button type="button" id="cancelBtn" hidden>
+                    Cancel Edit
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- STUDENT RECORDS -->
+
+        <section class="glass table-card">
+
+            <div class="table-heading">
+
+                <h2>Student Records</h2>
+
+                <input
+                    type="search"
+                    id="search"
+                    placeholder="Search students..."
+                >
+
+            </div>
+
+            <p id="message" role="status" aria-live="polite"></p>
+
+            <div class="table-scroll">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Subject</th>
+                            <th>Actions</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="studentTable"></tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+            REST SCHOOL | Powered by Flask REST API
+        </footer>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='restscript.js') }}"></script>
+
+</body>
+</html>

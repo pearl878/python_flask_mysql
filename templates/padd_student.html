@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+            padding: 60px 20px;
+        background: linear-gradient(90deg,rgba(44, 139, 171, 1) 0%, rgba(55, 104, 153, 1) 50%, rgba(34, 23, 99, 1) 100%);
+            color: #302b50;
+            justify-content: center;
+          
+        }
+input{
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4c6faf;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #9e5287;
+        }
+
+        a:hover {
+            text-decoration: underline;
+}
+    
+    </style>
+</head>
+<body>
+    <h1>Register a Student</h1>
+
+    <form action="/add" method="POST">
+        <input
+            type="text"
+            name="name"
+            placeholder="Student name"
+            required
+        >
+
+        <input
+            type="number"
+            name="age"
+            placeholder="Age"
+            min="1"
+            max="120"
+            required
+        >
+
+        <input
+            type="text"
+            name="subject"
+            placeholder="Favourite subject"
+            required
+        >
+
+        <button type="submit">Save Student</button>
+    </form>
+
+    <a href="/">View Students</a>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 450px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px #ccc;
+        }
+
+        h2 {
+            text-align: center;
+            color: #17365d;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 7px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 25px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Edit Student Details</h2>
+
+        <form action="{{ url_for('update_student', id=student.id) }}"
+              method="POST">
+
+            <label>Student Name</label>
+            <input type="text" name="name"
+                   value="{{ student.name }}" required>
+
+            <label>Age</label>
+            <input type="number" name="age"
+                   value="{{ student.age }}" min="1" max="120" required>
+
+            <label>Subject</label>
+            <input type="text" name="subject"
+                   value="{{ student.subject }}" required>
+
+            <button type="submit">Update Student</button>
+
+        </form>
+
+        <a href="{{ url_for('home') }}">Back to Dashboard</a>
+
+    </div>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Student</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 450px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #198754;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .flash {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #842029;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Edit Student</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+            <div class="flash {{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endwith %}
+
+    <form action="{{ url_for('update_student', id=student.id) }}"
+          method="POST">
+
+        <input type="text"
+               name="name"
+               value="{{ student.name }}"
+               required
+               minlength="2">
+
+        <input type="number"
+               name="age"
+               value="{{ student.age }}"
+               min="1"
+               max="120"
+               required>
+
+        <input type="text"
+               name="subject"
+               value="{{ student.subject }}"
+               required
+               minlength="2">
+
+        <button type="submit">Update Student</button>
+
+    </form>
+
+    <p>
+        <a href="{{ url_for('home') }}">Back to Dashboard</a>
+    </p>
+
+</div>
+
+</body>
+</html>

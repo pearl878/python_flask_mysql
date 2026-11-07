@@ -1,0 +1,178 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            padding: 30px;
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlGsSyF_d1qBS3LXVwO8Q7WUuHFAxGTGaNMvL3C24zBA&s=10);
+        }
+h1 {
+            text-align: center;
+            color: beige;
+           
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px #ccc;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+        </style>
+</head>
+<body>
+    <h1>Add Student</h1>
+    <form action="{{ url_for('add_student') }}" method="POST">
+
+    <input type="text" name="name" placeholder="Student Name" required>
+
+    <input type="number" name="age" placeholder="Student Age" required>
+
+    <input type="text" name="subject" placeholder="Subject" required>
+
+    <button type="submit">Save Student</button>
+
+</form>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            padding: 30px;
+            background-image: url(https://i.pinimg.com/736x/70/8d/6b/708d6b8d13e809506fab6a166585e842.jpg);
+        }
+
+        .container {
+            max-width: 450px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            background-image: url(https://i.pinimg.com/736x/ab/80/f3/ab80f3fb4c4cdf425058654950b918ee.jpg);
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .flash {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .success {
+            background: #d1e7dd;
+            color: #0f5132;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #842029;
+        }
+        h2{
+            text-align: center;
+            color: beige;
+        }
+        p a{
+color: beige;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Add New Student</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+            <div class="flash {{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endwith %}
+
+    <form action="{{ url_for('add_student') }}" method="POST">
+
+        <input type="text"
+               name="name"
+               placeholder="Student Name"
+               required
+               minlength="2">
+
+        <input type="number"
+               name="age"
+               placeholder="Student Age"
+               min="1"
+               max="120"
+               required>
+
+        <input type="text"
+               name="subject"
+               placeholder="Subject"
+               required
+               minlength="2">
+
+        <button type="submit">Save Student</button>
+
+    </form>
+
+    <p>
+        <a href="{{ url_for('home') }}">Back to Dashboard</a>
+    </p>
+
+</div>
+
+</body>
+</html>
